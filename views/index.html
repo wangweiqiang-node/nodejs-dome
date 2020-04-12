@@ -1,0 +1,64 @@
+<%- include include/header.html %>
+<!-- <%=title %> -->
+
+<div class="container">
+    <%
+    if(user){
+    articles.forEach(function(article){
+    %>
+    <div class="panel panel-success">
+        <div class="panel-body">
+            <!-- 路径参数 _id唯一标识 -->
+            <a href="/article/detail/<%=article._id%>">
+              <%= article.title%> 
+            </a>
+          <span style="position: relative;left: 110px;"><%=article._id%></span>
+        </div>
+        <!-- <div class="panel-footer">
+            <%= article.content%>
+        </div> -->
+    </div>
+    <%
+    })
+   %>
+   
+   <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <%
+            if(pageNumber > 1){
+             %>
+             <li>
+                <a href="/article/list/<%=(pageNumber - 1)%>/<%=pageSize%>?keyword=<%=keyword%>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+             </li>
+             <%   
+            }
+            %>
+         <%
+          for(var i = 1; i < totalPage; i++){
+           %>
+             <li><a href="/article/list/<%=i%>/<%=pageSize%>?keyword=<%=keyword%>"><%=i%></a></li>
+           <%   
+          }
+          %>
+          <%
+            if(pageNumber < totalPage){
+             %>
+             <li>
+                <a href="/article/list/<%=(pageNumber + 1)%>/<%=pageSize%>?keyword=<%=keyword%>" aria-label="Previous">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+             </li>
+             <%   
+            }
+            %>
+        </ul>
+      </nav>
+
+   <%
+}
+    %>
+</div>
+
+<%- include include/footer.html %>

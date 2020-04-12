@@ -1,0 +1,23 @@
+{
+  "name": "my-nodeproject",
+  "description": "test project",
+  "main": "",
+  "authors": [
+    "wangweiqiang <wangweiqiang1021@163.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "bootstrap": "3.2.0"
+  }
+}
